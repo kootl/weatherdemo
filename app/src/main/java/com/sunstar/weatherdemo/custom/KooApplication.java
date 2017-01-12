@@ -13,7 +13,7 @@ public class KooApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        //
+        //初始化LitePal
         LitePal.initialize(this);
     }
 }

@@ -9,11 +9,7 @@ import org.litepal.crud.DataSupport;
 public class Area extends DataSupport{
 
 
-    /**
-     * code : 999
-     * name : 杭州
-     * weather_id : CN101210101
-     */
+
 
     private int id;
 
@@ -27,6 +23,16 @@ public class Area extends DataSupport{
 
     private int code;
     private String name;
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+    private int cityId;
     private String weather_id;
 
     public int getId() {

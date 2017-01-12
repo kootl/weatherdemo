@@ -9,10 +9,6 @@ import org.litepal.crud.DataSupport;
 public class Province extends DataSupport {
 
 
-    /**
-     * code : 1
-     * name : 北京
-     */
 
     private int id;
 
@@ -25,6 +21,7 @@ public class Province extends DataSupport {
     }
 
     private int code;
+
     private String name;
 
     public int getId() {

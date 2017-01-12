@@ -9,10 +9,6 @@ import org.litepal.crud.DataSupport;
 public class City extends DataSupport{
 
 
-    /**
-     * code : 126
-     * name : 杭州
-     */
 
     private int id;
 
@@ -26,6 +22,16 @@ public class City extends DataSupport{
 
     private int code;
     private String name;
+
+    public int getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(int provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    private int provinceId;
 
     public int getId() {
         return id;
