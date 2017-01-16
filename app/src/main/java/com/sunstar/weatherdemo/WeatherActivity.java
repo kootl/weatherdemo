@@ -24,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.sunstar.weatherdemo.helper.JsonHelper;
 import com.sunstar.weatherdemo.helper.SimpleOkHttpHelper;
 import com.sunstar.weatherdemo.javabean.HeWeather;
+import com.sunstar.weatherdemo.service.AutoUpdateService;
 
 import java.io.IOException;
 
@@ -217,6 +218,9 @@ public class WeatherActivity extends AppCompatActivity {
                                 sp.edit().putString("weather", result).commit();
                                 //
                                 configAllView(hwb);
+
+                                //
+                                AutoUpdateService.stareMe(WeatherActivity.this);
                             } else {
                                 Toast.makeText(WeatherActivity.this, "获取天气数据失败", Toast.LENGTH_SHORT).show();
                             }
@@ -240,8 +244,10 @@ public class WeatherActivity extends AppCompatActivity {
         id_tv_info.setText(heWeatherBean.getNow().getCond().getTxt());
 
 
-        id_tv_aqi.setText(heWeatherBean.getAqi().getCity().getAqi());
-        id_tv_pm25.setText(heWeatherBean.getAqi().getCity().getPm25());
+        if (heWeatherBean.getAqi()!=null&&heWeatherBean.getAqi().getCity()!=null) {
+            id_tv_aqi.setText(heWeatherBean.getAqi().getCity().getAqi());
+            id_tv_pm25.setText(heWeatherBean.getAqi().getCity().getPm25());
+        }
 
 
         id_tv_comfort.setText(heWeatherBean.getSuggestion().getComf().getTxt());
