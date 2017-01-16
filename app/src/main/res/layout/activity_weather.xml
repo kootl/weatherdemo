@@ -8,39 +8,70 @@
     android:background="@color/colorPrimary"
     tools:context="com.sunstar.weatherdemo.WeatherActivity">
 
+
     <ImageView
         android:id="@+id/id_iv_bg"
         android:layout_width="match_parent"
-        android:scaleType="centerCrop"
-        android:layout_height="match_parent"/>
-
-    <ScrollView
-        android:id="@+id/id_sv_weather_all_layout"
-        android:fitsSystemWindows="true"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:scrollbars="none">
+        android:scaleType="centerCrop"/>
 
-      <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-
-          <include layout="@layout/weather_title"/>
-
-          <include layout="@layout/weather_content"/>
-
-          <include layout="@layout/weather_forecast"/>
-
-          <include layout="@layout/weather_api"/>
-
-          <include layout="@layout/weather_suggestion"/>
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/id_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-      </LinearLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/id_srl_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:id="@+id/id_sv_weather_all_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/weather_title"/>
+
+                    <include layout="@layout/weather_content"/>
+
+                    <include layout="@layout/weather_forecast"/>
+
+                    <include layout="@layout/weather_api"/>
+
+                    <include layout="@layout/weather_suggestion"/>
 
 
-    </ScrollView>
+                </LinearLayout>
+
+
+            </ScrollView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        <!-- <RelativeLayout
+             android:id="@+id/id_left_drawer_content"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             />-->
+        <fragment
+            android:name="com.sunstar.weatherdemo.ChoseAreaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            tools:layout="@layout/fragment_chose_area"/>
+
+
+    </android.support.v4.widget.DrawerLayout>
+
 
 </FrameLayout>

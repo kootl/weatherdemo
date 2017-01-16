@@ -107,7 +107,7 @@ public class ChoseAreaFragment extends Fragment {
         mButtonBack = (Button) view.findViewById(R.id.id_btn_back);
         mTextViewTitle = (TextView) view.findViewById(R.id.id_tv_title);
         mListView = (ListView) view.findViewById(R.id.id_listview);
-        mStringArrayAdapter = new ArrayAdapter<>(container.getContext(), android.R.layout.simple_list_item_1, mDataList);
+        mStringArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, mDataList);
         mListView.setAdapter(mStringArrayAdapter);
         return view;
     }
@@ -128,8 +128,14 @@ public class ChoseAreaFragment extends Fragment {
                         findArea();
                         break;
                     case LEVEL_AREA:
-                        String weatherid=mAreaList.get(position).getWeather_id();
-                        WeatherActivity.stareMe(getActivity(),weatherid);
+                      if (getActivity() instanceof MainActivity){
+                          String weatherid=mAreaList.get(position).getWeather_id();
+                          WeatherActivity.stareMe(getActivity(),weatherid);
+                      }else if (getActivity() instanceof WeatherActivity){
+                          String weatherid=mAreaList.get(position).getWeather_id();
+                          WeatherActivity weatherActivity= (WeatherActivity) getActivity();
+                          weatherActivity.changeArea(weatherid);
+                      }
                         break;
                 }
             }
