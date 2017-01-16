@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_weather"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.sunstar.weatherdemo.WeatherActivity">
+
+    <ImageView
+        android:id="@+id/id_iv_bg"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="match_parent"/>
+
+    <ScrollView
+        android:id="@+id/id_sv_weather_all_layout"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <include layout="@layout/weather_title"/>
+
+          <include layout="@layout/weather_content"/>
+
+          <include layout="@layout/weather_forecast"/>
+
+          <include layout="@layout/weather_api"/>
+
+          <include layout="@layout/weather_suggestion"/>
+
+
+      </LinearLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>

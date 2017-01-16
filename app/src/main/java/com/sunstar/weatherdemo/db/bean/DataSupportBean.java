@@ -1,4 +1,4 @@
-package com.sunstar.weatherdemo.db.javabean;
+package com.sunstar.weatherdemo.db.bean;
 
 import org.litepal.crud.DataSupport;
 

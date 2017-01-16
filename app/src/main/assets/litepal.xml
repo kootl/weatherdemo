@@ -3,8 +3,8 @@
     <dbname value="cool_weather"/>
     <version value="1"/>
     <list>
-        <mapping class="com.sunstar.weatherdemo.db.javabean.Province"/>
-        <mapping class="com.sunstar.weatherdemo.db.javabean.City"/>
-        <mapping class="com.sunstar.weatherdemo.db.javabean.Area"/>
+        <mapping class="com.sunstar.weatherdemo.db.bean.Province"/>
+        <mapping class="com.sunstar.weatherdemo.db.bean.City"/>
+        <mapping class="com.sunstar.weatherdemo.db.bean.Area"/>
     </list>
 </litepal>

@@ -15,9 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sunstar.weatherdemo.db.javabean.Area;
-import com.sunstar.weatherdemo.db.javabean.City;
-import com.sunstar.weatherdemo.db.javabean.Province;
+import com.sunstar.weatherdemo.db.bean.Area;
+import com.sunstar.weatherdemo.db.bean.City;
+import com.sunstar.weatherdemo.db.bean.Province;
 import com.sunstar.weatherdemo.helper.JsonHelper;
 import com.sunstar.weatherdemo.helper.SimpleOkHttpHelper;
 
@@ -30,8 +30,6 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
-import static android.R.attr.type;
 
 
 /**
@@ -130,7 +128,8 @@ public class ChoseAreaFragment extends Fragment {
                         findArea();
                         break;
                     case LEVEL_AREA:
-                        /* do nothing */
+                        String weatherid=mAreaList.get(position).getWeather_id();
+                        WeatherActivity.stareMe(getActivity(),weatherid);
                         break;
                 }
             }

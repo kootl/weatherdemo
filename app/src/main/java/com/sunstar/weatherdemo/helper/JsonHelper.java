@@ -2,9 +2,11 @@ package com.sunstar.weatherdemo.helper;
 
 import android.text.TextUtils;
 
-import com.sunstar.weatherdemo.db.javabean.Area;
-import com.sunstar.weatherdemo.db.javabean.City;
-import com.sunstar.weatherdemo.db.javabean.Province;
+import com.google.gson.Gson;
+import com.sunstar.weatherdemo.db.bean.Area;
+import com.sunstar.weatherdemo.db.bean.City;
+import com.sunstar.weatherdemo.db.bean.Province;
+import com.sunstar.weatherdemo.javabean.HeWeather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,15 +46,15 @@ public class JsonHelper {
         return false;
     }
 
-    public static boolean parseCity(String json,int nowProvinceId) {
+    public static boolean parseCity(String json, int nowProvinceId) {
         if (!TextUtils.isEmpty(json)) {
             try {
                 JSONArray jsonArrayProvinces = new JSONArray(json);
 
                 for (int i = 0; i < jsonArrayProvinces.length(); i++) {
                     JSONObject jsonObject = jsonArrayProvinces.getJSONObject(i);
-                    int code  = jsonObject.getInt("id");
-                   // int code = jsonObject.getInt("code");
+                    int code = jsonObject.getInt("id");
+                    // int code = jsonObject.getInt("code");
                     String name = jsonObject.getString("name");
                     //
                     City c = new City();
@@ -72,7 +74,7 @@ public class JsonHelper {
         return false;
     }
 
-    public static boolean parseArea(String json,int nowCityId) {
+    public static boolean parseArea(String json, int nowCityId) {
         if (!TextUtils.isEmpty(json)) {
             try {
                 JSONArray jsonArrayProvinces = new JSONArray(json);
@@ -80,7 +82,7 @@ public class JsonHelper {
                 for (int i = 0; i < jsonArrayProvinces.length(); i++) {
                     JSONObject jsonObject = jsonArrayProvinces.getJSONObject(i);
                     int code = jsonObject.getInt("id");
-                  //  int code = jsonObject.getInt("code");
+                    //  int code = jsonObject.getInt("code");
                     String name = jsonObject.getString("name");
                     String weather_id = jsonObject.getString("weather_id");
                     //
@@ -100,5 +102,11 @@ public class JsonHelper {
             }
         }
         return false;
+    }
+
+
+    public static HeWeather parseWeather(String json) {
+        HeWeather heWeather = new Gson().fromJson(json, HeWeather.class);
+        return heWeather;
     }
 }

@@ -1,4 +1,4 @@
-package com.sunstar.weatherdemo.db.javabean;
+package com.sunstar.weatherdemo.db.bean;
 
 import org.litepal.crud.DataSupport;
 
@@ -6,7 +6,7 @@ import org.litepal.crud.DataSupport;
  * Created by louisgeek on 2017/1/11.
  */
 
-public class Province extends DataSupport {
+public class City extends DataSupport{
 
 
 
@@ -21,8 +21,17 @@ public class Province extends DataSupport {
     }
 
     private int code;
-
     private String name;
+
+    public int getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(int provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    private int provinceId;
 
     public int getId() {
         return id;
